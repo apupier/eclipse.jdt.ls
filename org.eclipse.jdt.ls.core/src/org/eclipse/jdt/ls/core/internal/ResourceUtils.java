@@ -63,8 +63,7 @@ public final class ResourceUtils {
 		if (markers == null || markers.isEmpty()) {
 			return "";
 		}
-		String s = markers.stream().map(m -> toString(m)).collect(Collectors.joining(", "));
-		return s;
+		return markers.stream().map(ResourceUtils::toString).collect(Collectors.joining(", "));
 	}
 
 	public static String toString(IMarker marker) {

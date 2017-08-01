@@ -172,7 +172,7 @@ public class CompletionProposalReplacementProvider {
 		try {
 			document = JsonRpcHelpers.toDocument(this.compilationUnit.getBuffer());
 			String signature = String.valueOf(proposal.getSignature());
-			String[] types = Stream.of(Signature.getParameterTypes(signature)).map(t -> Signature.toString(t))
+			String[] types = Stream.of(Signature.getParameterTypes(signature)).map(Signature::toString)
 					.toArray(String[]::new);
 			String methodName = String.valueOf(proposal.getName());
 			int offset = proposal.getReplaceStart();

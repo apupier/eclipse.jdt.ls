@@ -11,6 +11,7 @@
 package org.eclipse.jdt.ls.core.internal.handlers;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -127,7 +128,7 @@ public final class WorkspaceDiagnosticsHandler implements IResourceChangeListene
 	public List<Diagnostic> toDiagnosticsArray(IDocument document, IMarker[] markers) {
 		List<Diagnostic> diagnostics = Stream.of(markers)
 				.map(m -> toDiagnostic(document, m))
-				.filter(d -> d != null)
+				.filter(Objects::nonNull)
 				.collect(Collectors.toList());
 		return diagnostics;
 	}
